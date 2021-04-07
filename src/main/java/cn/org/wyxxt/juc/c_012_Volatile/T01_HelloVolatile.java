@@ -27,7 +27,7 @@ package cn.org.wyxxt.juc.c_012_Volatile;
 import java.util.concurrent.TimeUnit;
 
 public class T01_HelloVolatile {
-    /*volatile*/ boolean running = true; //对比一下有无volatile的情况下，整个程序运行结果的区别
+    volatile boolean running = true; //对比一下有无volatile的情况下，整个程序运行结果的区别
     void m() {
         System.out.println("m start");
         while(running) {
@@ -38,7 +38,15 @@ public class T01_HelloVolatile {
     public static void main(String[] args) {
         T01_HelloVolatile t = new T01_HelloVolatile();
 
+        //lambda 表达式
         new Thread(t::m, "t1").start();
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                t.m();
+//            }
+//        }).start();
 
         try {
             TimeUnit.SECONDS.sleep(1);
