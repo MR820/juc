@@ -1,35 +1,41 @@
-package cn.org.wyxxt.juc.c_012_Volatile;
+package cn.org.wyxxt.juc.c_018_00_AtomicXXX;
 
 /**
  * @author xingzhiwei
  * @createBy IntelliJ IDEA
- * @time 2021/4/7 上午9:53
+ * @time 2021/4/8 下午6:14
  * @email jsjxzw@163.com
  */
+
 /**
- * 对比上一个程序，可以用synchronized解决，synchronized可以保证可见性和原子性，volatile只能保证可见性
+ * 解决同样的问题的更高效的方法，使用AtomXXX类
+ * AtomXXX类本身方法都是原子性的，但不能保证多个方法连续调用是原子性的
+ * CAS 号称无锁
  * @author mashibing
  */
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
-public class T05_VolatileVsSync {
-    /*volatile*/ int count = 0;
+public class T01_AtomicInteger {
+    /*volatile*/ //int count1 = 0;
 
-    void m() {
+    AtomicInteger count = new AtomicInteger(0);
+
+    /*synchronized*/ void m() {
         for (int i = 0; i < 10000; i++)
-            synchronized(this) {
-                count++;
-            }
+            //if count1.get() < 1000
+            count.incrementAndGet(); //count1++
     }
 
     public static void main(String[] args) {
-        T05_VolatileVsSync t = new T05_VolatileVsSync();
+        T01_AtomicInteger t = new T01_AtomicInteger();
 
         List<Thread> threads = new ArrayList<Thread>();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             threads.add(new Thread(t::m, "thread-" + i));
         }
 

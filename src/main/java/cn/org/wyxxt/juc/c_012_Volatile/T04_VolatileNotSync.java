@@ -18,7 +18,7 @@ import java.util.List;
 
 public class T04_VolatileNotSync {
     volatile int count = 0;
-    void m() {
+    /*synchronized*/ void m() {
         for(int i=0; i<10000; i++) count++;
     }
 
