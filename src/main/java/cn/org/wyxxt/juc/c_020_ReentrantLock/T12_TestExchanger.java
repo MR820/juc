@@ -10,7 +10,7 @@ public class T12_TestExchanger {
         new Thread(()->{
             String s = "T1";
             try {
-                s = exchanger.exchange(s);
+                s = exchanger.exchange(s); //阻塞
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
