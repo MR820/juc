@@ -16,7 +16,7 @@ public class  T06_TestCountDownLatch {
             threads[i] = new Thread(()->{
                 int result = 0;
                 for(int j=0; j<10000; j++) result += j;
-                latch.countDown();
+                latch.countDown(); //原子的
             });
         }
 
