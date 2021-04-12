@@ -21,16 +21,17 @@ public class T13_TestLockSupport {
 
         t.start();
 
-        LockSupport.unpark(t);
+    //        LockSupport.unpark(t);
+        System.out.println("master");
 
-        /*try {
+        try {
             TimeUnit.SECONDS.sleep(8);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("after 8 senconds!");
 
-        LockSupport.unpark(t);*/
+        LockSupport.unpark(t);
 
     }
 }
