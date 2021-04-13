@@ -6,8 +6,7 @@
  * 
  * 使用Lock和Condition来实现
  * 对比两种方式，Condition的方式可以更加精确的指定哪些线程被唤醒
- * 
- * @author mashibing
+ *
  */
 package cn.org.wyxxt.juc.c_021_01_interview;
 
@@ -23,7 +22,7 @@ public class MyContainer2<T> {
 	private int count = 0;
 	
 	private Lock lock = new ReentrantLock();
-	private Condition producer = lock.newCondition();
+	private Condition producer = lock.newCondition(); //等待队列 Condition 本质就是不同的等待队列
 	private Condition consumer = lock.newCondition();
 	
 	public void put(T t) {
@@ -70,11 +69,11 @@ public class MyContainer2<T> {
 			}, "c" + i).start();
 		}
 		
-		try {
-			TimeUnit.SECONDS.sleep(2);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			TimeUnit.SECONDS.sleep(2);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 		
 		//启动生产者线程
 		for(int i=0; i<2; i++) {
