@@ -4,7 +4,7 @@
  * 这里是复习synchronized最原始的语义
  */
 
-package cn.org.wyxxt.juc.c_020_ReentrantLock;
+package cn.org.wyxxt.juc.c_020_00_ReentrantLock;
 
 import java.util.concurrent.TimeUnit;
 

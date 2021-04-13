@@ -14,7 +14,7 @@
  *
  */
 
-package cn.org.wyxxt.juc.c_020_ReentrantLock;
+package cn.org.wyxxt.juc.c_020_00_ReentrantLock;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
