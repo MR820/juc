@@ -64,11 +64,11 @@ public class T03_NotifyHoldingLock { //wait notify
 						lock.notify(); //不释放锁
 					}
 					
-					try {
-						TimeUnit.SECONDS.sleep(1);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+//					try {
+//						TimeUnit.SECONDS.sleep(1);
+//					} catch (InterruptedException e) {
+//						e.printStackTrace();
+//					}
 				}
 			}
 		}, "t1").start();

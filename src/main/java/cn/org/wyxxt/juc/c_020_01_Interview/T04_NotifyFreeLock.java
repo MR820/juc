@@ -81,11 +81,11 @@ public class T04_NotifyFreeLock {
 						}
 					}
 					
-					try {
-						TimeUnit.SECONDS.sleep(1);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+//					try {
+//						TimeUnit.SECONDS.sleep(1);
+//					} catch (InterruptedException e) {
+//						e.printStackTrace();
+//					}
 				}
 			}
 		}, "t1").start();

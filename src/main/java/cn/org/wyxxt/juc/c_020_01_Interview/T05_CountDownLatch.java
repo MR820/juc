@@ -51,7 +51,7 @@ public class T05_CountDownLatch {
 
 		new Thread(() -> {
 			System.out.println("t2启动");
-			if (c.size() != 5) {
+//			if (c.size() != 5) {
 				try {
 					latch.await();
 
@@ -60,7 +60,7 @@ public class T05_CountDownLatch {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-			}
+//			}
 			System.out.println("t2 结束");
 			latch2.countDown();
 

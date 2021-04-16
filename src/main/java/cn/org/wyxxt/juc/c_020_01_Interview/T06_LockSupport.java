@@ -51,12 +51,12 @@ public class T06_LockSupport {
 
 		Thread t2 = new Thread(() -> {
 			System.out.println("t2启动");
-			if (c.size() != 5) {
+//			if (c.size() != 5) {
 
 				LockSupport.park();
 
 
-			}
+//			}
 			System.out.println("t2 结束");
 
 
