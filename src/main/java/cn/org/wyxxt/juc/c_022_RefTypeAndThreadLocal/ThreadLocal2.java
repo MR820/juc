@@ -24,7 +24,7 @@ public class ThreadLocal2 {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
+
 			System.out.println(tl.get());
 		}).start();
 		
