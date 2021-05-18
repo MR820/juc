@@ -10,18 +10,16 @@ public class T01_00_Question {
         t1 = new Thread(() -> {
             for(char i='A';i<='Z';i++) {
                 System.out.print(i);
-                LockSupport.park();
                 LockSupport.unpark(t2);
-
-
+                LockSupport.park();
             }
         }, "t1");
         t2 = new Thread(() -> {
               for (int i = 1; i <= 26; i++) {
-                  System.out.print(i);
-
-                  LockSupport.unpark(t1);
                   LockSupport.park();
+                  System.out.print(i);
+                  LockSupport.unpark(t1);
+
               }
             }, "t2");
         t1.start();
