@@ -5,6 +5,7 @@ import java.util.PriorityQueue;
 public class T07_01_PriorityQueque {
     public static void main(String[] args) {
         PriorityQueue<String> q = new PriorityQueue<>();
+        // 二叉树 小顶堆
 
         q.add("c");
         q.add("e");

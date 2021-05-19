@@ -3,7 +3,7 @@ package cn.org.wyxxt.juc.c_025;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 
-public class T08_SynchronusQueue { //����Ϊ0
+public class T08_SynchronusQueue { //容量为0
 	public static void main(String[] args) throws InterruptedException {
 		BlockingQueue<String> strs = new SynchronousQueue<>();
 		
@@ -15,7 +15,7 @@ public class T08_SynchronusQueue { //����Ϊ0
 			}
 		}).start();
 
-		strs.put("aaa"); //�����ȴ�����������
+		strs.put("aaa"); //阻塞等待消费者消息
 		//strs.put("bbb");
 		//strs.add("aaa");
 		System.out.println(strs.size());

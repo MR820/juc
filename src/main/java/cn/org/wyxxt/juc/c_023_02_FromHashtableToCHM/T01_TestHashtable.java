@@ -42,8 +42,7 @@ public class T01_TestHashtable {
         Thread[] threads = new Thread[THREAD_COUNT];
 
         for(int i=0; i<threads.length; i++) {
-            threads[i] =
-            new MyThread(i * (count/THREAD_COUNT));
+            threads[i] = new MyThread(i * (count/THREAD_COUNT));
         }
 
         for(Thread t : threads) {
