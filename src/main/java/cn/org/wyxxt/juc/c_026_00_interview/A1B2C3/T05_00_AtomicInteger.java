@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class T05_00_AtomicInteger {
 
-    static AtomicInteger threadNo = new AtomicInteger(1);
+    static AtomicInteger threadNo = new AtomicInteger(2);
 
 
     public static void main(String[] args) {

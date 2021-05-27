@@ -1,6 +1,5 @@
 /**
- * ��ʶfuture
- * �첽
+ *
  */
 package cn.org.wyxxt.juc.c_026_01_ThreadPool;
 
@@ -16,7 +15,7 @@ public class T06_00_Future {
 		
 		new Thread(task).start();
 		
-		System.out.println(task.get()); //����
+		System.out.println(task.get()); //
 
 
 	}

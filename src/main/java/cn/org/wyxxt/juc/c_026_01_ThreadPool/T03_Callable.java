@@ -1,6 +1,5 @@
 /**
- * ��ʶCallable����Runnable��������չ
- * ��Callable�ĵ��ã������з���ֵ
+ *
  */
 package cn.org.wyxxt.juc.c_026_01_ThreadPool;
 
@@ -16,9 +15,9 @@ public class T03_Callable {
         };
 
         ExecutorService service = Executors.newCachedThreadPool();
-        Future<String> future = service.submit(c); //�첽
+        Future<String> future = service.submit(c); //
 
-        System.out.println(future.get());//����
+        System.out.println(future.get());//
 
         service.shutdown();
     }

@@ -8,38 +8,42 @@ public class T06_00_sync_wait_notify {
         char[] aI = "1234567".toCharArray();
         char[] aC = "ABCDEFG".toCharArray();
 
-        new Thread(()->{
-            synchronized (o) {
-                for(char c : aI) {
-                    System.out.print(c);
-                    try {
-                        o.notify();
-                        o.wait(); //让出锁
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+        new Thread(
+                () -> {
+                    synchronized (o) {
+                        for (char c : aC) {
+                            try {
+                                System.out.print(c);
+                                o.notify();
+                                o.wait();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }finally{
+                                o.notify();
+                            }
+                        }
                     }
-                }
+                },"t1")
+                .start();
 
-                o.notify(); //必须，否则无法停止程序
-            }
+        new Thread(
+                () -> {
+                    synchronized (o) {
+                        for (char c : aI) {
 
-        }, "t1").start();
-
-        new Thread(()->{
-            synchronized (o) {
-                for(char c : aC) {
-                    System.out.print(c);
-                    try {
-                        o.notify();
-                        o.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                            try {
+                                System.out.print(c);
+                                o.notify();
+                                o.wait();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }finally{
+                                o.notify();
+                            }
+                        }
                     }
-                }
-
-                o.notify();
-            }
-        }, "t2").start();
+                },"t2")
+                .start();
     }
 }
 
